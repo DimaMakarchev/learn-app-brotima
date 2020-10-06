@@ -1,0 +1,12 @@
+.item{
+    color: rgba(255,139,197,0.94);
+}
+img{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.backs{
+    background-color: rgba(89,120,255,0.94);
+}

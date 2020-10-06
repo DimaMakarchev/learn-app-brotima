@@ -1,0 +1,38 @@
+.articleNews{
+    grid-area: article;
+}
+.beginning{
+    background:linear-gradient(to right,#46ff61,white);
+    text-align: center;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.finish{
+    margin-top: 10px;
+}
+.maps_one{
+    margin: 0 auto;
+    width: 600px;
+    height: 200px;
+}.maps_two{
+    margin: 0 auto;
+     width: 600px;
+     height: 200px;
+}
+.maps_one :first-child{
+    display: inline-block;
+    width: 50%;
+}
+.maps_one :last-child{
+    display: inline-block;
+    width: 50%;
+}
+.maps_two :first-child{
+    display: inline-block;
+    width: 50%;
+}
+.maps_two :last-child{
+    display: inline-block;
+    width: 50%;
+}

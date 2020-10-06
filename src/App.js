@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from "./component/Header/Header";
+import Nav from "./component/Nav/Nav";
+import Article from "./component/RouterSwitcher/Article/Article";
+import Messages from "./component/RouterSwitcher/Messages/Messages";
+import {BrowserRouter, Route} from "react-router-dom";
+import Settings from "./component/setting/Settings";
+import News from "./component/RouterSwitcher/News/News";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const ArticleRender = () => <Article/>;
+const MessagesRender = () => <Messages/>;
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const globalState = this.props.globalState;
+        return (
+            <BrowserRouter>
+                <div className='grid_wrapper'>
+                    <Header/>
+                    <Nav/>
+                    <div>
+                        <Route path='/article' render={() => <Article globalState={globalState.articlePage}
+                                                                      getNewPost={this.props.getNewPost}
+                                                                      getDefaultForTextAreaPost={this.props.getDefaultForTextAreaPost}
+                        />}
+                        />
+                        <Route path='/messages' render={() => <Messages globalState={globalState.messagesPage}/>}/>
+                        <Route path='/settings' render={() => <Settings/>}/>
+                        <Route path='/news' render={() => <News/>}/>
+                        {/*<Route path='/music' component={Music} />*/}
+                    </div>
+                </div>
+            </BrowserRouter>
+
+        );
+    };
 }
 
 export default App;
+
+

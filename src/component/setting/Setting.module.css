@@ -1,0 +1,9 @@
+.mydiv div {
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: green;
+}

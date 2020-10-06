@@ -1,0 +1,33 @@
+.messages {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: rgba(42, 255, 92, 0.94);
+    border-radius: 14px;
+    height: 500px;
+    line-height: 30px;
+
+}
+
+.users {
+    padding: 20px;
+    border-right: 2px black solid;
+}
+
+.user {
+    text-decoration: none;
+}
+
+.active {
+    color: gold;
+    text-decoration: none;
+}
+
+
+.messagesForUser {
+    padding: 20px;
+}
+
+.message {
+    background: linear-gradient(rgba(42, 255, 92, 0.94), rgba(255, 135, 211, 0.94));
+}
+

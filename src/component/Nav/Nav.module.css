@@ -1,0 +1,32 @@
+
+.nav {
+    grid-area: nav;
+    background-color: rgba(255, 183, 147, 0.94);
+    border: 2px rgba(0, 43, 255, 0.94) solid;
+    border-radius: 3px;
+    padding: 15px;
+    line-height: 30px;
+}
+
+.item > a {
+    color: rgba(255, 252, 249, 0.94);
+    text-decoration: none;
+}
+
+.item > a:hover {
+    color: rgba(0, 13, 61, 0.37);
+}
+
+
+.round {
+}
+
+.item div {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0.5px;
+    background-color: green;
+
+}
