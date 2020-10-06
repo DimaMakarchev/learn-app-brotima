@@ -23,7 +23,8 @@ const funNext = (data) => {
 callbackTi(1, funX, funNext);
 
 let man = {
-    _name:'bro',
+    _name:'bro'
+    ,
 
 }
 
