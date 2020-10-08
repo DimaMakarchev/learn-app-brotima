@@ -1,30 +1,30 @@
-const callbackTi = (data, funmOne, funNext) => {
-    funmOne(data);
-    funNext(data);
-};
-const funX = (data) => {
-    if (data === 1) {
-
+const man = {
+    method(ms) {
         setTimeout(() => {
-            console.log(1)
-        }, 3000)
-    } else {
-        console.log("no 1")
-    }
+            console.log("OK bro")
+        }, ms)
+    },
+
+    reqAllToServer(data, ms) {
+        return new Promise((resolve, reject) => {
+            if (data === "BRO" || ms === 100) {
+                console.log(data + " " + ms);
+                resolve(ms);
+            } else {
+                reject("error");
+            }
+        })
+    },
+
+
+//
+// Promise.all([reqAllToServer("BRO", 2000), reqAllToServer("BRdO", 4000)])
+//     .then(() => console.log("The and bro))")).catch(reason => {
+//     console.log(" Error : ", reason);
+// });
 };
-const funNext = (data) => {
-    if (data === 1) {
-        console.log(2)
-    } else {
-        console.log("no 2")
-    }
-};
-
-callbackTi(1, funX, funNext);
-
-let man = {
-    _name:'bro'
-    ,
-
-}
-
+man.reqAllToServer("BRO", 2000)
+    .catch(reason => {
+        console.log(" Error : ", reason);
+    })
+    .then(value => man.method(value));

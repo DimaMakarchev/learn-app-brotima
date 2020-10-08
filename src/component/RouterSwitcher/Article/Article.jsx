@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Article.module.css';
 import MyPostsForBro from "./MyPostsBro/MyPostsForBro";
 
-const Article = ({globalState,getNewPost,getDefaultForTextAreaPost}) => {
+const Article = ({globalState,dispatch}) => {
     return (
         <article className={classes.article}>
             <div>
@@ -16,8 +16,7 @@ const Article = ({globalState,getNewPost,getDefaultForTextAreaPost}) => {
             </div>
 
             <MyPostsForBro globalState={globalState}
-                           getNewPost={getNewPost}
-                           getDefaultForTextAreaPost={getDefaultForTextAreaPost}
+                           dispatch={dispatch}
             />
         </article>
 

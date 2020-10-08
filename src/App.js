@@ -25,8 +25,7 @@ class App extends React.Component {
                     <Nav/>
                     <div>
                         <Route path='/article' render={() => <Article globalState={globalState.articlePage}
-                                                                      getNewPost={this.props.getNewPost}
-                                                                      getDefaultForTextAreaPost={this.props.getDefaultForTextAreaPost}
+                                                                      dispatch={this.props.dispatch}
                         />}
                         />
                         <Route path='/messages' render={() => <Messages globalState={globalState.messagesPage}/>}/>

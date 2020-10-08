@@ -7,8 +7,7 @@ class MyPostsForBro extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            getNewPost: this.props.getNewPost,
-            getDefaultForTextAreaPost: this.props.getDefaultForTextAreaPost,
+            dispatch: this.props.dispatch,
             checkBox: true,
         }
     }
@@ -17,8 +16,8 @@ class MyPostsForBro extends Component {
         e.preventDefault();
         // let value = document.getElementById('bro').value;
         let refPostAlert = refPost.current.value;
-        this.state.getNewPost(refPostAlert);
-        this.state.getDefaultForTextAreaPost('');
+        this.state.dispatch({type: 'NEW-POST', data: refPostAlert});
+        this.state.dispatch({type: 'DEFAULT-TEXTAREA', data: ''});
     };
 
     handlerOnChange = (e) => {
@@ -27,7 +26,7 @@ class MyPostsForBro extends Component {
         let refPostAlert = e.target.value;
         // let refPostAlert = refPost.current.value;
         console.log(refPostAlert);
-        this.state.getDefaultForTextAreaPost(refPostAlert);
+        this.state.dispatch({type: 'DEFAULT-TEXTAREA', data: refPostAlert});
     };
 
     handlerOnChangeFforCheckBox = (e) => {
