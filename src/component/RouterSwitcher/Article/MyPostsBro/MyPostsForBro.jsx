@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import PostForBro from "./Post/PostForBro";
+import {actionDefaultTextArea, actionNewPost} from "../../../../redux/functions/reducers/reducerArticle";
 
 let refPost = React.createRef();
+
 
 class MyPostsForBro extends Component {
     constructor(props) {
@@ -16,8 +18,9 @@ class MyPostsForBro extends Component {
         e.preventDefault();
         // let value = document.getElementById('bro').value;
         let refPostAlert = refPost.current.value;
-        this.state.dispatch({type: 'NEW-POST', data: refPostAlert});
-        this.state.dispatch({type: 'DEFAULT-TEXTAREA', data: ''});
+        this.state.dispatch(actionNewPost(refPostAlert));
+        debugger;
+        this.state.dispatch(actionDefaultTextArea(''));
     };
 
     handlerOnChange = (e) => {
@@ -26,7 +29,7 @@ class MyPostsForBro extends Component {
         let refPostAlert = e.target.value;
         // let refPostAlert = refPost.current.value;
         console.log(refPostAlert);
-        this.state.dispatch({type: 'DEFAULT-TEXTAREA', data: refPostAlert});
+        this.state.dispatch(actionDefaultTextArea(refPostAlert));
     };
 
     handlerOnChangeFforCheckBox = (e) => {
@@ -48,21 +51,36 @@ class MyPostsForBro extends Component {
             <>
                 <div>
                     <div>POSTS FOR BRO</div>
-                    <form>
-                        <textarea ref={refPost} value={defaultForTextAreaPost}
-                                  onChange={this.handlerOnChange}/>
-                        <br/>
-                        <button onClick={this.methodOnClick}>SAVE BRO</button>
-                        <button>REMOVE BRO</button>
-                    </form>
-                    <form>
-                        <label> Touch me <input type='checkbox' onChange={this.handlerOnChangeFforCheckBox}/>
+                    <fieldset>
+                        <legend>Simple form</legend>
+                            <label>Input data : <textarea ref={refPost} value={defaultForTextAreaPost}
+                                             onChange={this.handlerOnChange} placeholder='in put data bro' />
+
+                            </label>
+                        <label>
+                            Email
+                            <input type="email" name="email-address" required/>
                         </label>
-                        <input type='email'/>
-                        <input type='date' onChange={this.handlerOnChangeFforCheckBoxDate}/>
-                        <input type='number'/>
-                        <input type='tel'/>
-                    </form>
+                            <input type='submit' onClick={this.methodOnClick} value='SAVE BRO'/>
+                            <button>REMOVE BRO</button>
+
+                    </fieldset>
+                    {/*<form>*/}
+                    {/*    <label> Touch me <input type='checkbox' onChange={this.handlerOnChangeFforCheckBox}/>*/}
+                    {/*    </label>*/}
+                    {/*    <input type='email'/>*/}
+                    {/*    <input type='date' onChange={this.handlerOnChangeFforCheckBoxDate}/>*/}
+                    {/*    <input type='number'/>*/}
+                    {/*    <input type='tel'/>*/}
+                    {/*    <select>*/}
+                    {/*        <option>day</option>*/}
+                    {/*        <option>day</option>*/}
+                    {/*        <option>day</option>*/}
+                    {/*        <option>day</option>*/}
+                    {/*    </select>*/}
+                    {/*</form>*/}
+                    {/*<input type='hidden'/>*/}
+                    {/*<input type='file'/>*/}
 
                 </div>
                 {

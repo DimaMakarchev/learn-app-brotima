@@ -5,6 +5,7 @@ body {
     height: 800px;
     font: 20px 'Fjalla One', sans-serif;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 .grid_wrapper  {

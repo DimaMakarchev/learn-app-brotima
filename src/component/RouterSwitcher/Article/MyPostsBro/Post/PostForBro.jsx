@@ -8,10 +8,12 @@ const PostForBro = ({data}) => {
         <>
             <div className={classes.item}>Post</div>
             <img src='https://images-na.ssl-images-amazon.com/images/I/61jA6R5gmiL._AC_SX522_.jpg'/>
-            <p>{data.id}</p>
-            <p>{data.text}</p>
-            <p>{data.like}</p>
-            <span>Like</span>
+            <ul>
+                <li>
+                    <p>{data.id} {data.text} {data.like}</p>
+                    <span>Like</span>
+                </li>
+            </ul>
         </>
     );
 

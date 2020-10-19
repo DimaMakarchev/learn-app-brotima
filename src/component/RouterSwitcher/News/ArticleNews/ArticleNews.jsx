@@ -5,32 +5,49 @@ class ArticleNews extends Component {
     render() {
         return (
             <div className={style.articleNews}>
-                <div className={style.beginning}>Посвящается ремеслу создания сайтов
-                    Каждый год самые яркие веб-дизайнеры и фронтенд-разработчики собираются в Чикаго, чтобы обсудить
-                    новейшие технологии. Присоединяйся к нам этим августом!
+                <div className={style.data_text}>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <p>Lorem ipsum dolor</p>
+
+                    <p>Lorem ipsum dolor</p>
+                    <ul>
+                        <li>Lorem ipsum dolor</li>
+                        <li>Lorem ipsum dolor</li>
+                        <li>Lorem ipsum dolor</li>
+                    </ul>
                 </div>
-                <div className={style.finish}>
-                    <div className={style.maps_one}>
-                        <div>STYLES
-                            CONFERENCE
-                            24–26 августа — Чикаго, штат Иллинойс
-                        </div>
-                        <div>
-                            <iframe src="https://www.google.com/maps/embed?..."></iframe>
 
-                        </div>
-                    </div>
-                    <div className={style.maps_two}>
-                        <div>STYLES
-                            CONFERENCE
-                            24–26 августа — Чикаго, штат Иллинойс
-                            2
-                        </div>
-                        <div>
-                            <iframe src="https://www.google.com/maps/embed?..."></iframe>
+                <div className={style.data_input}>
+                    <form>
+                        <fieldset>
+                            <legend>BRO</legend>
+                            <label>Name
+                                <br/>
+                                <input type='text' placeholder='Name'/>
+                            </label>
+                            <br/>
+                            <label>Mail
+                                <br/>
+                                <input type='email' placeholder='Mail'/>
+                            </label>
+                            <br/>
 
-                        </div>
-                    </div>
+                            <label>Count
+                                <br/>
+                                <input type='number'/>
+                            </label>
+                            <br/>
+
+                            <label>Text_Comment
+                                <br/>
+                                <textarea></textarea>
+                            </label>
+                             <br/>
+                             <input type='submit' value='Order'/>
+
+                        </fieldset>
+
+                    </form>
                 </div>
             </div>
         );

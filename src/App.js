@@ -28,7 +28,10 @@ class App extends React.Component {
                                                                       dispatch={this.props.dispatch}
                         />}
                         />
-                        <Route path='/messages' render={() => <Messages globalState={globalState.messagesPage}/>}/>
+                        <Route path='/messages' render={() => <Messages
+                            globalState={globalState.messagesPage}
+                            dispatch={this.props.dispatch}
+                        />}/>
                         <Route path='/settings' render={() => <Settings/>}/>
                         <Route path='/news' render={() => <News/>}/>
                         {/*<Route path='/music' component={Music} />*/}

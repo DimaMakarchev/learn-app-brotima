@@ -6,8 +6,8 @@
     grid-template-columns: 1fr;
     grid-template-rows: 40px 1fr 50px;
     grid-gap: 10px;
-    background: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg") 20% 100% no-repeat;
-    /*background: 100% 100%;*/
+    background: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/bugatti-chiron-pur-sport-106-1582836604.jpg")  no-repeat;
+    background: 100% 100%;
 }
 
 

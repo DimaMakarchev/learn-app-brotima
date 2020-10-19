@@ -8,6 +8,7 @@ const Message = (props) => {
 
     return (
         <div className={classStyle.message}>
+
             {props.data.message}
         </div>
     )

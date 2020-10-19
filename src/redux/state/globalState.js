@@ -19,7 +19,8 @@ const store = {
                 {id: 2, message: 'Уроки React JS 2'},
                 {id: 3, message: 'Уроки React JS 3 '},
                 {id: 4, message: 'Уроки React JS 4'},
-            ]
+            ],
+            messagesDataBody:'',
         }
     },
     getGlobal() {

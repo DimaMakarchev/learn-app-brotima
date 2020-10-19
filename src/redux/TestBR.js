@@ -1,30 +1,17 @@
-const man = {
-    method(ms) {
-        setTimeout(() => {
-            console.log("OK bro")
-        }, ms)
-    },
+let arr = [{name: {data: 'Bro', id: 1}}, 213, 222];
 
-    reqAllToServer(data, ms) {
-        return new Promise((resolve, reject) => {
-            if (data === "BRO" || ms === 100) {
-                console.log(data + " " + ms);
-                resolve(ms);
-            } else {
-                reject("error");
-            }
-        })
-    },
+arr.splice(1, 1, {name: {data: 'Ti', id: 1}});
+arr.forEach(value => {
+    console.log(value);
+});
 
+let number = arr.indexOf(213);
+console.log(number);
+let b = arr.includes(213);
+console.log(b);
+let find = arr.find(item => item.name.data === 'Ti');
+console.log(find);
 
-//
-// Promise.all([reqAllToServer("BRO", 2000), reqAllToServer("BRdO", 4000)])
-//     .then(() => console.log("The and bro))")).catch(reason => {
-//     console.log(" Error : ", reason);
-// });
-};
-man.reqAllToServer("BRO", 2000)
-    .catch(reason => {
-        console.log(" Error : ", reason);
-    })
-    .then(value => man.method(value));
+let filter = arr.filter(item => item.name.id <2);
+console.log(filter.length);
+
