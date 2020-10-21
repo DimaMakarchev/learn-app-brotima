@@ -11,36 +11,36 @@ import News from "./component/RouterSwitcher/News/News";
 const ArticleRender = () => <Article/>;
 const MessagesRender = () => <Messages/>;
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+const App = (props) => {
 
-    render() {
-        const globalState = this.props.globalState;
-        return (
-            <BrowserRouter>
-                <div className='grid_wrapper'>
-                    <Header/>
-                    <Nav/>
-                    <div>
-                        <Route path='/article' render={() => <Article globalState={globalState.articlePage}
-                                                                      dispatch={this.props.dispatch}
-                        />}
-                        />
-                        <Route path='/messages' render={() => <Messages
-                            globalState={globalState.messagesPage}
-                            dispatch={this.props.dispatch}
-                        />}/>
-                        <Route path='/settings' render={() => <Settings/>}/>
-                        <Route path='/news' render={() => <News/>}/>
-                        {/*<Route path='/music' component={Music} />*/}
-                    </div>
+    return (
+        <BrowserRouter>
+            <div className='grid_wrapper'>
+                <Header/>
+                <Nav/>
+                <div>
+                    <Route path='/article'
+                           render={() => <Article
+                               articlePage={props.state.articlePage}
+                               dispatch={props.dispatch}
+                           />}
+                    />
+                    <Route path='/messages' render={() => <Messages
+                        messagesPage={props.state.messagesPage}
+                        dispatch={props.dispatch}
+                    />}
+                    />
+
+                    <Route path='/settings' render={() => <Settings/>}/>
+                    <Route path='/news' render={() => <News/>}/>
+                    {/*<Route path='/music' component={Music} />*/}
                 </div>
-            </BrowserRouter>
+            </div>
+        </BrowserRouter>
 
-        );
-    };
+    );
+
+    ;
 }
 
 export default App;

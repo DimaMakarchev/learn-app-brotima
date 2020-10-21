@@ -6,7 +6,7 @@ import Message from "./Messages/Message";
 import {actionDefaultMessages, actionNewMessages} from "../../../redux/functions/reducers/reducerMessages";
 
 let refMessage = React.createRef();
-const Messages = ({globalState,dispatch}) => {
+const Messages = ({messagesPage,dispatch}) => {
 
     const handlerClickMessages = (e) => {
         e.preventDefault();
@@ -24,20 +24,20 @@ const Messages = ({globalState,dispatch}) => {
         <div className={classStyle.messages}>
             <div className={classStyle.users}>
                 {
-                    globalState.users.map(value => <User data={value}/>
+                    messagesPage.users.map(value => <User data={value}/>
                     )
                 }
             </div>
             <div className={classStyle.messagesForUser}>
                 {
-                    globalState.messages.map(value => {
+                    messagesPage.messages.map(value => {
                         return <Message data={value}/>
                     })
                 }
                 <form>
                     <fieldset>
                     <textarea ref={refMessage} onChange={handlerChangeMessages}
-                              value={globalState.messagesDataBody}
+                              value={messagesPage.messagesDataBody}
                     />
                         <input type='submit' value='spend' onClick={handlerClickMessages}/>
                     </fieldset>

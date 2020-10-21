@@ -1,8 +1,14 @@
 //const
+
 let NEW_POST = 'NEW-POST';
 let DEFAULT_TEXTAREA = 'DEFAULT-TEXTAREA';
-
-export const reducerArticle = (action, store) => {
+let  articlePage= {
+    dataForPost: [
+        {id: 3, text: 'Bro BROOOOOOO 3', like: 12},
+    ],
+        defaultForTextAreaPost: 'Bro',
+};
+export const reducerArticle = ( store=articlePage,action,) => {
     switch (action.type) {
         case NEW_POST:
             let newPosts = {
@@ -12,12 +18,12 @@ export const reducerArticle = (action, store) => {
             };
             store.dataForPost.push(newPosts);
             store.defaultForTextAreaPost = '';
-            return;
+            return store;
         case DEFAULT_TEXTAREA:
             store.defaultForTextAreaPost = action.data;
-            return;
+            return store;
         default :
-            return;
+            return store;
     }
 
 };
