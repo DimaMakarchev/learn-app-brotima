@@ -14,9 +14,10 @@ let messagesPage = {
         {id: 4, message: 'Уроки React JS 4'},
     ],
     messagesDataBody: '',
-}
+};
 
 export const reducerMessages = ( store=messagesPage,action,) => {
+    debugger;
     switch (action.type) {
         case UPDATE_DATA:
             store.messagesDataBody = action.data;

@@ -7,9 +7,8 @@ import Messages from "./component/RouterSwitcher/Messages/Messages";
 import {BrowserRouter, Route} from "react-router-dom";
 import Settings from "./component/setting/Settings";
 import News from "./component/RouterSwitcher/News/News";
+import PropTypes from "prop-types";
 
-const ArticleRender = () => <Article/>;
-const MessagesRender = () => <Messages/>;
 
 const App = (props) => {
 
@@ -42,6 +41,7 @@ const App = (props) => {
 
     ;
 }
+
 
 export default App;
 

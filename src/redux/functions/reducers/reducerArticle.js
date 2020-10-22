@@ -9,6 +9,7 @@ let  articlePage= {
         defaultForTextAreaPost: 'Bro',
 };
 export const reducerArticle = ( store=articlePage,action,) => {
+    debugger;
     switch (action.type) {
         case NEW_POST:
             let newPosts = {
