@@ -4,23 +4,21 @@ import {actionDefaultTextArea, actionNewPost} from "../../../../redux/functions/
 
 let refPost = React.createRef();
 
-export const MyPostsForBro = (props) => {
+export const MyPostsForBro = ({
+                                  dataForPost,
+                                  defaultForTextAreaPost,
+                                  methodOnClick,
+                                  handlerOnChange
+                              }) => {
 
-    let methodOnClick = (e) => {
+    let methodOnClickMy = (e) => {
         e.preventDefault();
-        // let value = document.getElementById('bro').value;
-        let refPostAlert = refPost.current.value;
-        props.dispatch(actionNewPost(refPostAlert));
-        // debugger;
-        props.dispatch(actionDefaultTextArea(''));
+        methodOnClick(e.target.value);
     };
 
-    let handlerOnChange = (e) => {
+    let handlerOnChangeMy = (e) => {
         e.preventDefault();
-        let refPostAlert = e.target.value;
-        // let refPostAlert = refPost.current.value;
-        console.log(refPostAlert);
-        props.dispatch(actionDefaultTextArea(refPostAlert));
+        handlerOnChange(e.target.value);
     };
 
     return (
@@ -29,20 +27,20 @@ export const MyPostsForBro = (props) => {
                 <div>POSTS FOR BRO</div>
                 <fieldset>
                     <legend>Simple form</legend>
-                    <label>Input data : <textarea ref={refPost} value={props.defaultForTextAreaPost}
-                                                  onChange={handlerOnChange} placeholder='in put data bro'/>
+                    <label>Input data : <textarea ref={refPost} value={defaultForTextAreaPost}
+                                                  onChange={handlerOnChangeMy} placeholder='in put data bro'/>
 
                     </label>
                     <label>
                         Email
                         <input type="email" name="email-address" required/>
                     </label>
-                    <input type='submit' onClick={methodOnClick} value='SAVE BRO'/>
+                    <input type='submit' onClick={methodOnClickMy} value='SAVE BRO'/>
                     <button>REMOVE BRO</button>
                 </fieldset>
             </div>
             {
-                props.dataForPost.map(value => <PostForBro data={value}/>)
+                dataForPost.map(value => <PostForBro data={value}/>)
             }
         </>
     );

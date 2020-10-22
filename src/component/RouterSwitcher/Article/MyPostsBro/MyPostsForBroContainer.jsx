@@ -1,49 +1,31 @@
 import React, {Component} from 'react';
 import PostForBro from "./Post/PostForBro";
 import {actionDefaultTextArea, actionNewPost} from "../../../../redux/functions/reducers/reducerArticle";
+import MyPostsForBro from "./MyPostsForBro";
 
 let refPost = React.createRef();
 
-export const MyPostsForBroContainer = (props) => {
+export const MyPostsForBroContainer = ({store}) => {
 
-    let methodOnClick = (e) => {
-        e.preventDefault();
-        // let value = document.getElementById('bro').value;
-        let refPostAlert = refPost.current.value;
-        props.dispatch(actionNewPost(refPostAlert));
-        // debugger;
-        props.dispatch(actionDefaultTextArea(''));
+    let dataForPost = store.getState().articlePage.dataForPost;
+    let defaultForTextAreaPost = store.getState().articlePage.defaultForTextAreaPost;
+
+    let methodOnClick = (refPostAlert) => {
+        store.dispatch(actionNewPost(refPostAlert));
+        store.dispatch(actionDefaultTextArea(''));
     };
 
-    let handlerOnChange = (e) => {
-        e.preventDefault();
-        let refPostAlert = e.target.value;
-        // let refPostAlert = refPost.current.value;
-        console.log(refPostAlert);
-        props.dispatch(actionDefaultTextArea(refPostAlert));
+    let handlerOnChange = (refPostAlert) => {
+        store.dispatch(actionDefaultTextArea(refPostAlert));
     };
 
     return (
         <>
-            <div>
-                <div>POSTS FOR BRO</div>
-                <fieldset>
-                    <legend>Simple form</legend>
-                    <label>Input data : <textarea ref={refPost} value={props.defaultForTextAreaPost}
-                                                  onChange={handlerOnChange} placeholder='in put data bro'/>
-
-                    </label>
-                    <label>
-                        Email
-                        <input type="email" name="email-address" required/>
-                    </label>
-                    <input type='submit' onClick={methodOnClick} value='SAVE BRO'/>
-                    <button>REMOVE BRO</button>
-                </fieldset>
-            </div>
-            {
-                props.dataForPost.map(value => <PostForBro data={value}/>)
-            }
+            <MyPostsForBro dataForPost={dataForPost}
+                           defaultForTextAreaPost={defaultForTextAreaPost}
+                           methodOnClick={methodOnClick}
+                           handlerOnChange={handlerOnChange}
+            />
         </>
     );
 }
