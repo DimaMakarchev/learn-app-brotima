@@ -5,12 +5,12 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import {store} from "./redux/reduxNew";
 
-export const renderFUN = (state) => {
+export const renderFUN = (store) => {
     debugger;
     ReactDOM.render(
         <React.StrictMode>
             <App
-                 state={state}
+                store={store}
                  dispatch={store.dispatch}
             />
         </React.StrictMode>,
@@ -18,11 +18,10 @@ export const renderFUN = (state) => {
     );
 };
 
-renderFUN(store.getState());
+renderFUN(store);
 
 store.subscribe(() => {
-    let state = store.getState();
-    renderFUN(state);
+    renderFUN(store);
 });
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

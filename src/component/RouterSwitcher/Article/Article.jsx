@@ -1,8 +1,9 @@
 import React from 'react';
 import classes from './Article.module.css';
 import MyPostsForBro from "./MyPostsBro/MyPostsForBro";
+import {store} from "../../../redux/reduxNew";
 
-const Article = (props) => {
+const Article = ({store}) => {
     return (
         <article className={classes.article}>
             <div>
@@ -16,9 +17,9 @@ const Article = (props) => {
             </div>
 
             <MyPostsForBro
-                dataForPost={props.articlePage.dataForPost}
-                defaultForTextAreaPost={props.articlePage.defaultForTextAreaPost}
-                dispatch={props.dispatch}
+                dataForPost={store.getState().articlePage.dataForPost}
+                defaultForTextAreaPost={store.getState().articlePage.defaultForTextAreaPost}
+                dispatch={store.dispatch}
             />
         </article>
 

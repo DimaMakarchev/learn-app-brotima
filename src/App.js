@@ -8,9 +8,10 @@ import {BrowserRouter, Route} from "react-router-dom";
 import Settings from "./component/setting/Settings";
 import News from "./component/RouterSwitcher/News/News";
 import PropTypes from "prop-types";
+import {store} from "./redux/reduxNew";
 
 
-const App = (props) => {
+const App = ({store}) => {
 
     return (
         <BrowserRouter>
@@ -19,17 +20,8 @@ const App = (props) => {
                 <Nav/>
                 <div>
                     <Route path='/article'
-                           render={() => <Article
-                               articlePage={props.state.articlePage}
-                               dispatch={props.dispatch}
-                           />}
-                    />
-                    <Route path='/messages' render={() => <Messages
-                        messagesPage={props.state.messagesPage}
-                        dispatch={props.dispatch}
-                    />}
-                    />
-
+                           render={() => <Article store={store}/>}/>
+                    {/*<Route path='/messages' render={() => <Messages store={store}/>}/>*/}
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     {/*<Route path='/music' component={Music} />*/}

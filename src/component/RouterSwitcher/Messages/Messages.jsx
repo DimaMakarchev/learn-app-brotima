@@ -6,17 +6,17 @@ import Message from "./Messages/Message";
 import {actionDefaultMessages, actionNewMessages} from "../../../redux/functions/reducers/reducerMessages";
 
 let refMessage = React.createRef();
-const Messages = ({messagesPage,dispatch}) => {
+const Messages = ({store}) => {
 
     const handlerClickMessages = (e) => {
         e.preventDefault();
         debugger;
-        dispatch(actionNewMessages(refMessage.current.value))
+        store.dispatch(actionNewMessages(refMessage.current.value))
     };
 
     const handlerChangeMessages = () => {
         let value = refMessage.current.value;
-        dispatch(actionDefaultMessages(value))
+        store.dispatch(actionDefaultMessages(value))
     };
 
 
@@ -24,27 +24,25 @@ const Messages = ({messagesPage,dispatch}) => {
         <div className={classStyle.messages}>
             <div className={classStyle.users}>
                 {
-                    messagesPage.users.map(value => <User data={value}/>
+                    store.getState().messagesPage.users.map(value => <User data={value}/>
                     )
                 }
             </div>
             <div className={classStyle.messagesForUser}>
                 {
-                    messagesPage.messages.map(value => {
+                    store.getState().messagesPage.messages.map(value => {
                         return <Message data={value}/>
                     })
                 }
                 <form>
                     <fieldset>
                     <textarea ref={refMessage} onChange={handlerChangeMessages}
-                              value={messagesPage.messagesDataBody}
+                              value={store.getState().messagesPage.messagesDataBody}
                     />
                         <input type='submit' value='spend' onClick={handlerClickMessages}/>
                     </fieldset>
                 </form>
-
             </div>
-
         </div>
     );
 };
