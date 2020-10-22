@@ -6,17 +6,23 @@ import Message from "./Messages/Message";
 import {actionDefaultMessages, actionNewMessages} from "../../../redux/functions/reducers/reducerMessages";
 
 let refMessage = React.createRef();
-const Messages = ({store}) => {
+const Messages = ({
+                      users,
+                      messages,
+                      handlerClickMessages,
+                      handlerChangeMessages,
+                      messagesDataBody
+                  }) => {
 
-    const handlerClickMessages = (e) => {
+    const handlerClickMessagesMy = (e) => {
         e.preventDefault();
         debugger;
-        store.dispatch(actionNewMessages(refMessage.current.value))
+        handlerClickMessages(refMessage.current.value);
     };
 
-    const handlerChangeMessages = () => {
-        let value = refMessage.current.value;
-        store.dispatch(actionDefaultMessages(value))
+    const handlerChangeMessagesMy = (e) => {
+        e.preventDefault();
+        handlerChangeMessages(refMessage.current.value);
     };
 
 
@@ -24,22 +30,22 @@ const Messages = ({store}) => {
         <div className={classStyle.messages}>
             <div className={classStyle.users}>
                 {
-                    store.getState().messagesPage.users.map(value => <User data={value}/>
+                 users.map(value => <User data={value}/>
                     )
                 }
             </div>
             <div className={classStyle.messagesForUser}>
                 {
-                    store.getState().messagesPage.messages.map(value => {
+                    messages.map(value => {
                         return <Message data={value}/>
                     })
                 }
                 <form>
                     <fieldset>
-                    <textarea ref={refMessage} onChange={handlerChangeMessages}
-                              value={store.getState().messagesPage.messagesDataBody}
+                    <textarea ref={refMessage} onChange={handlerChangeMessagesMy}
+                              value={messagesDataBody}
                     />
-                        <input type='submit' value='spend' onClick={handlerClickMessages}/>
+                        <input type='submit' value='spend' onClick={handlerClickMessagesMy}/>
                     </fieldset>
                 </form>
             </div>
@@ -47,7 +53,7 @@ const Messages = ({store}) => {
     );
 };
 
-Messages.propTypes={
+Messages.propTypes = {
     globalState: PropTypes.object,
     dispatch: PropTypes.func,
 

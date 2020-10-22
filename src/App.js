@@ -9,6 +9,7 @@ import Settings from "./component/setting/Settings";
 import News from "./component/RouterSwitcher/News/News";
 import PropTypes from "prop-types";
 import {store} from "./redux/reduxNew";
+import MessagesContainer from "./component/RouterSwitcher/Messages/MessagesContainer";
 
 
 const App = ({store}) => {
@@ -21,7 +22,7 @@ const App = ({store}) => {
                 <div>
                     <Route path='/article'
                            render={() => <Article store={store}/>}/>
-                    {/*<Route path='/messages' render={() => <Messages store={store}/>}/>*/}
+                    <Route path='/messages' render={() => <MessagesContainer store={store}/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     {/*<Route path='/music' component={Music} />*/}
