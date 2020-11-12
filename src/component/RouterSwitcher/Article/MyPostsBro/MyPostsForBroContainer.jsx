@@ -1,34 +1,29 @@
-import React, {Component} from 'react';
-import PostForBro from "./Post/PostForBro";
+import React from 'react';
 import {actionDefaultTextArea, actionNewPost} from "../../../../redux/functions/reducers/reducerArticle";
-import MyPostsForBro from "./MyPostsForBro";
+import {connect} from "react-redux";
+import {MyPostsForBro} from "./MyPostsForBro";
 
-let refPost = React.createRef();
 
-export const MyPostsForBroContainer = ({store}) => {
+let mapStateToProps = (state) => {
+    return {
+        dataForPost: state.articlePage.dataForPost,
+        defaultForTextAreaPost: state.articlePage.defaultForTextAreaPost,
+    }
+};
+let mapDispatchToProps = (dispatch) => {
+    return {
+        methodOnClick: (refPostAlert) => {
+            dispatch(actionNewPost(refPostAlert));
+            dispatch(actionDefaultTextArea(''));
+        },
+        handlerOnChange:(refPostAlert)=>{
+            dispatch(actionDefaultTextArea(refPostAlert));
+        }
 
-    let dataForPost = store.getState().articlePage.dataForPost;
-    let defaultForTextAreaPost = store.getState().articlePage.defaultForTextAreaPost;
+    }
+};
 
-    let methodOnClick = (refPostAlert) => {
-        store.dispatch(actionNewPost(refPostAlert));
-        store.dispatch(actionDefaultTextArea(''));
-    };
-
-    let handlerOnChange = (refPostAlert) => {
-        store.dispatch(actionDefaultTextArea(refPostAlert));
-    };
-
-    return (
-        <>
-            <MyPostsForBro dataForPost={dataForPost}
-                           defaultForTextAreaPost={defaultForTextAreaPost}
-                           methodOnClick={methodOnClick}
-                           handlerOnChange={handlerOnChange}
-            />
-        </>
-    );
-}
+const MyPostsForBroContainer = connect(mapStateToProps,mapDispatchToProps)(MyPostsForBro);
 
 
 export default MyPostsForBroContainer;

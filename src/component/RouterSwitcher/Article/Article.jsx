@@ -4,7 +4,7 @@ import MyPostsForBro from "./MyPostsBro/MyPostsForBro";
 import {store} from "../../../redux/reduxNew";
 import MyPostsForBroContainer from "./MyPostsBro/MyPostsForBroContainer";
 
-const Article = ({store}) => {
+const Article = () => {
     return (
         <article className={classes.article}>
             <div>
@@ -17,9 +17,7 @@ const Article = ({store}) => {
                 </div>
             </div>
 
-            <MyPostsForBroContainer
-                store={store}
-            />
+            <MyPostsForBroContainer/>
         </article>
 
     );

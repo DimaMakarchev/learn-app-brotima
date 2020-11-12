@@ -12,7 +12,7 @@ import {store} from "./redux/reduxNew";
 import MessagesContainer from "./component/RouterSwitcher/Messages/MessagesContainer";
 
 
-const App = ({store}) => {
+const App = () => {
 
     return (
         <BrowserRouter>
@@ -20,9 +20,8 @@ const App = ({store}) => {
                 <Header/>
                 <Nav/>
                 <div>
-                    <Route path='/article'
-                           render={() => <Article store={store}/>}/>
-                    <Route path='/messages' render={() => <MessagesContainer store={store}/>}/>
+                    <Route path='/article' render={() => <Article/>}/>
+                    <Route path='/messages' render={() => <MessagesContainer />}/>
                     <Route path='/settings' render={() => <Settings/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     {/*<Route path='/music' component={Music} />*/}

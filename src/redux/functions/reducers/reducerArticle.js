@@ -2,13 +2,13 @@
 
 let NEW_POST = 'NEW-POST';
 let DEFAULT_TEXTAREA = 'DEFAULT-TEXTAREA';
-let  articlePage= {
+let articlePage = {
     dataForPost: [
         {id: 3, text: 'Bro BROOOOOOO 3', like: 12},
     ],
-        defaultForTextAreaPost: 'Bro',
+    defaultForTextAreaPost: 'Bro',
 };
-export const reducerArticle = ( store=articlePage,action,) => {
+export const reducerArticle = (store = articlePage, action,) => {
     debugger;
     switch (action.type) {
         case NEW_POST:
@@ -17,12 +17,16 @@ export const reducerArticle = ( store=articlePage,action,) => {
                 text: action.data,
                 like: 12
             };
-            store.dataForPost.push(newPosts);
-            store.defaultForTextAreaPost = '';
-            return store;
+            debugger;
+            let copyStore={...store};
+            copyStore.dataForPost=[...store.dataForPost];
+            copyStore.dataForPost.push(newPosts);
+            copyStore.defaultForTextAreaPost = '';
+            return copyStore;
         case DEFAULT_TEXTAREA:
-            store.defaultForTextAreaPost = action.data;
-            return store;
+            let copyStore2={...store};
+            copyStore2.defaultForTextAreaPost = action.data;
+            return copyStore2;
         default :
             return store;
     }

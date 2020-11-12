@@ -3,7 +3,6 @@ import classStyle from './Messages.module.css'
 import PropTypes from 'prop-types';
 import User from "./Users/User";
 import Message from "./Messages/Message";
-import {actionDefaultMessages, actionNewMessages} from "../../../redux/functions/reducers/reducerMessages";
 
 let refMessage = React.createRef();
 const Messages = ({
@@ -30,8 +29,7 @@ const Messages = ({
         <div className={classStyle.messages}>
             <div className={classStyle.users}>
                 {
-                 users.map(value => <User data={value}/>
-                    )
+                    users.map(value => <User data={value}/>)
                 }
             </div>
             <div className={classStyle.messagesForUser}>
