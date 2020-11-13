@@ -13,12 +13,12 @@ export const MyPostsForBro = ({
 
     let methodOnClickMy = (e) => {
         e.preventDefault();
-        methodOnClick(e.target.value);
+        methodOnClick(refPost.current.value);
     };
 
     let handlerOnChangeMy = (e) => {
         e.preventDefault();
-        handlerOnChange(e.target.value);
+        handlerOnChange(refPost.current.value);
     };
 
     return (

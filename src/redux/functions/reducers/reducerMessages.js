@@ -20,16 +20,19 @@ export const reducerMessages = ( store=messagesPage,action,) => {
     debugger;
     switch (action.type) {
         case UPDATE_DATA:
-            store.messagesDataBody = action.data;
-            return store;
+            let copyStore={...store};
+            copyStore.messagesDataBody = action.data;
+            return copyStore;
         case NEW_MESSAGES:
             let mess = {
                 id: 1,
                 message: action.data
             };
-            store.messages.push(mess);
-            store.messagesDataBody = '';
-            return store;
+            let copyStore2={...store};
+            copyStore2.messages=[...store.messages];
+            copyStore2.messages.push(mess);
+            copyStore2.messagesDataBody = '';
+            return copyStore2;
         default:
             return store;
     }
